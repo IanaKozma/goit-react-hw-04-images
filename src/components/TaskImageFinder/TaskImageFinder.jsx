@@ -55,10 +55,12 @@ export function TaskImageFinder() {
       });
   }, [page, search]);
 
-  const handleFormSubmit = search => {
-    setSearch(search);
-    setImages([]);
-    setPage(1);
+  const handleFormSubmit = newSearch => {
+    if (search !== newSearch) {
+      setSearch(newSearch);
+      setImages([]);
+      setPage(1);
+    }
   };
 
   const handleLoadMoreClick = () => {
